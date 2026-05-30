@@ -53,4 +53,5 @@ Simple et efficace. Nommage aligné sur une potentielle base de données pour an
 - Extraction du `<li>` en sous-composant `TaskItem` mémoïsé
 
 ## Démo
-Link vidéo:
+https://github.com/user-attachments/assets/e84f2205-a023-41aa-baf2-7f8d0f395a4d
+
