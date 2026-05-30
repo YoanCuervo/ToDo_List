@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 📝 TodoList — Composant React
+> Composant React + TypeScript développé en autonomie : ajouter, cocher, modifier, supprimer et trier des tâches. Stylé en CSS natif imbriqué, sans framework UI.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Aperçu
+Une todo list claire et fonctionnelle, pensée comme un composant autonome réutilisable. Initialement développée dans le cadre d'un projet collectif d'application d'organisateur d'évent pour préparer un titre RNCP, puis repris en projet personnel.
 
-## React Compiler
+## Fonctionnalités
+- ➕ Ajout d'une tâche au clic ou via la touche `Enter`
+- ✅ Validation par checkbox personnalisée (style barré + italique)
+- ✏️ Édition inline avec `textarea` multi-ligne
+- 🗑️ Suppression individuelle
+- 📊 Tri automatique : tâches non cochées en haut de la liste
+- ♿ Conçu pour l'accessibilité (unités `rem`, focus géré)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack technique
+| Domaine | Choix | Pourquoi |
+| Framework | React 19 | Composant et état réactif |
+| Langage | TypeScript | Typage statique, fiabilité du code |
+| Icônes | lucide-react | Légère, personnalisable |
+| Style | CSS natif imbriqué | Pas de dépendance, lisibilité |
+| Build | Vite | Rapidité et DX |
 
-## Expanding the ESLint configuration
+## Concepts mis en pratique
+- **Gestion d'état** avec `useState` (4 états indépendants)
+- **Inputs contrôlés** (synchronisation DOM / state)
+- **Rendu conditionnel** via opérateur ternaire
+- **Immuabilité** : `.map()`, `.filter()`, spread operator
+- **Tri dynamique** avec `.sort()` sur un booléen converti en nombre
+- **CSS scopé** sous un sélecteur racine pour éviter les conflits globaux
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Structure des données
+```ts
+type Task = {
+  todo_id: number;
+  todo_name: string;
+  todo_is_done: boolean;
+};
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Simple et efficace. Nommage aligné sur une potentielle base de données pour anticiper l'intégration API.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Pistes d'évolution
+- Branchement à une API REST (Node + SQL)
+- Date d'échéance par tâche (`todo_deadline`)
+- Annulation de l'édition avec `Escape`
+- Confirmation avant suppression
+- Extraction du `<li>` en sous-composant `TaskItem` mémoïsé
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Démo
+Link vidéo:
