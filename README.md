@@ -19,7 +19,9 @@ Une todo list claire et fonctionnelle, pensée comme un composant autonome réut
 - ♿ Conçu pour l'accessibilité (unités `rem`, focus géré)
 
 ## Stack technique
+
 | Domaine | Choix | Pourquoi |
+|---------|-------|----------|
 | Framework | React 19 | Composant et état réactif |
 | Langage | TypeScript | Typage statique, fiabilité du code |
 | Icônes | lucide-react | Légère, personnalisable |
@@ -42,8 +44,15 @@ type Task = {
   todo_is_done: boolean;
 };
 ```
-
 Simple et efficace. Nommage aligné sur une potentielle base de données pour anticiper l'intégration API.
+
+## Installation
+```bash
+git clone https://github.com//todolist-react.git
+cd todolist-react
+npm install
+npm run dev
+```
 
 ## Pistes d'évolution
 - Branchement à une API REST (Node + SQL)
